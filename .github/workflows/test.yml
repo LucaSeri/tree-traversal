@@ -1,11 +1,12 @@
-name: 🚀 Run
+name: 🚀 Test 
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   run:
-    name: 🚀 Run
+    name: 🚀 Test 
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
@@ -13,7 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🚀 Run
+      - name: 🚀 Test 
         shell: bash
-        run: |
-			pytest test.py
+        run: pytest test.py
